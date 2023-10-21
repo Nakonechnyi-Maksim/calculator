@@ -1,0 +1,27 @@
+.calc {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: #e6e6fa;
+  border-radius: 15px;
+  width: 250px;
+  height: 250px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.answ input:first-child {
+  width: 100%;
+  direction: rtl;
+}
+
+.calc input {
+  width: 50px;
+  height: 30px;
+}
