@@ -8,61 +8,51 @@ function Calculator() {
   const [prevInput, setPrevInput] = useState("");
   const [operator, setOperator] = useState("");
 
-  const Calc = {
-    display: display,
-    currentInput: currentInput,
-    operator: operator,
-    prevInput: prevInput,
-  };
-
   function handleDigitClick(e) {
     let value = +e.target.value;
-    Calc.currentInput += `${value}`;
-    setCurrentInput(Calc.currentInput);
-    if (!!Calc.operator && !!Calc.currentInput) {
-      Calc.prevInput += `${value}`;
-    }
-    setPrevInput(Calc.prevInput);
-    console.log(Calc);
+    setCurrentInput(currentInput + value);
   }
   function handleOperatorClick(e) {
     let operator = e.target.value;
-    Calc.operator = `${operator}`;
-    setOperator(Calc.operator);
-    console.log(Calc);
+    setOperator(operator);
+    setCurrentInput("");
+    setPrevInput(currentInput);
   }
   function handleAnswerClick() {
-    switch (Calc.operator) {
+    switch (operator) {
       case "+":
-        Calc.display = setDisplay(`${+Calc.currentInput + +Calc.prevInput}`);
+        setDisplay(`${+currentInput + +prevInput}`);
         break;
       case "-":
-        Calc.display = setDisplay(`${+Calc.currentInput - +Calc.prevInput}`);
+        setDisplay(`${+currentInput - +prevInput}`);
         break;
       case "/":
-        Calc.display = setDisplay(`${+Calc.currentInput / +Calc.prevInput}`);
+        setDisplay(`${+currentInput / +prevInput}`);
         break;
       case "*":
-        Calc.display = setDisplay(`${+Calc.currentInput * +Calc.prevInput}`);
+        setDisplay(`${+currentInput * +prevInput}`);
         break;
       default:
         break;
     }
-    console.log(Calc);
   }
   function handleClearClick(e) {
-    console.log(Calc);
+    setDisplay("0");
+    setCurrentInput("");
+    setPrevInput("");
+    setOperator("");
   }
 
   return (
     <div className="calc">
       <ul>
         <li>
-          {Calc.currentInput}
-          {Calc.operator}
-          {Calc.prevInput}
+          {prevInput}
+          {operator}
+          {currentInput}
         </li>
-        <li className="answ">Ответ {Calc.display}</li>
+        <li>Ответ {display}</li>
+
         <li>
           <input type="button" value={1} onClick={handleDigitClick} />
           <input type="button" value={2} onClick={handleDigitClick} />
