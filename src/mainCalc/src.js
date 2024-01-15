@@ -24,10 +24,10 @@ function Calculator() {
         setDisplay(`${+currentInput + +prevInput}`);
         break;
       case "-":
-        setDisplay(`${+currentInput - +prevInput}`);
+        setDisplay(`${+prevInput - +currentInput}`);
         break;
       case "/":
-        setDisplay(`${+currentInput / +prevInput}`);
+        setDisplay(`${+prevInput / +currentInput}`);
         break;
       case "*":
         setDisplay(`${+currentInput * +prevInput}`);
@@ -52,7 +52,6 @@ function Calculator() {
           {currentInput}
         </li>
         <li>Ответ {display}</li>
-
         <li>
           <input type="button" value={1} onClick={handleDigitClick} />
           <input type="button" value={2} onClick={handleDigitClick} />
