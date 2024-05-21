@@ -3,11 +3,7 @@ import { useState } from "react";
 import "./src.css";
 
 function Calculator() {
-<<<<<<< HEAD
-  const [display, setDisplay] = useState("0");
-=======
   const [display, setDisplay] = useState("2");
->>>>>>> 798383ee036946f7c7c0d43bb85c107c8e053613
   const [currentInput, setCurrentInput] = useState("");
   const [prevInput, setPrevInput] = useState("");
   const [operator, setOperator] = useState("");
