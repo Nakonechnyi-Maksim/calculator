@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./src.css";
 
 function Calculator() {
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState("10");
   const [currentInput, setCurrentInput] = useState("");
   const [prevInput, setPrevInput] = useState("");
   const [operator, setOperator] = useState("");
